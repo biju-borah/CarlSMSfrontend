@@ -1,0 +1,65 @@
+.pop-up {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: 999;
+}
+
+.pop-up .main {
+    /* display: grid; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* min-height: 100vh; */
+    border-radius: 20%;
+    background: #f7f7f7;
+    color: black;
+}
+
+.pop-up .wrapper {
+    background-color: #fff;
+    /* height: 320px; */
+    width: 520px;
+    padding: 2rem;
+    position: relative;
+}
+
+.pop-up .wrapper i {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    font-size: 1.5rem;
+}
+
+.pop-up .wrapper h1 {
+    font-size: 20px;
+    color: #F8492D;
+    margin-bottom: 20px;
+}
+
+.pop-up .wrapper p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.pop-up .wrapper input {
+    background-color: #f7f7f7;
+    border: none;
+    outline: none;
+    color: black;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+}
+
+.pop-up .wrapper .btn {
+    background-color: #F8492D;
+    color: #fff;
+    border: none;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+}

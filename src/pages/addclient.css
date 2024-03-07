@@ -1,0 +1,134 @@
+.add-details {
+    display: grid;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    background: #fff;
+}
+
+.add-details .top {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.add-details .wrapper {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 10vh;
+    width: 80vw;
+    /* height: 480px; */
+    background: #f7f7f7;
+    color: #000;
+    border-radius: 10px;
+    padding: 30px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.add-details p {
+    margin-left: 10px;
+}
+
+.add-details .input-box-first {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.add-details input {
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #000000;
+    padding: 5px 10px;
+}
+
+.add-details .input-box-first input {
+    width: 350px
+}
+
+.add-details .input-box-second input {
+    width: 350px
+}
+
+.add-details .input-box-third input {
+    width: 350px
+}
+
+.add-details .input-box-fourth input {
+    width: 350px
+}
+
+.add-details .input-box-third {
+    display: flex;
+
+}
+
+.add-details .input-box-second {
+    display: flex;
+
+}
+
+.add-details .input-box-first {
+    display: flex;
+
+}
+
+.add-details .location-id {
+    margin-right: 40px;
+    margin-bottom: 30px;
+}
+
+.add-details .acc-token {
+    margin-right: 40px;
+    margin-bottom: 30px;
+}
+
+.add-details .limit {
+    margin-left: 40px;
+}
+
+.add-details .wrapper .btn {
+    position: absolute;
+    right: 60px;
+    top: 10px;
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 35px;
+    background-color: #F8492D;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add-details .user-image img {
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    margin-left: -90px;
+}
+
+.add-details .main-text h1 {
+    color: #000;
+    margin-top: 50px;
+    padding-left: 35px;
+}
+
+.add-details .black-btn {
+    margin-top: 80px;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 35px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
