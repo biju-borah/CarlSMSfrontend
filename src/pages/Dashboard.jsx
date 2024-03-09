@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
 import green from '../assets/green.png'
+import red from '../assets/red.png'
 import user from '../assets/userimage.png'
 import Loader from '../components/Loader';
 
@@ -99,6 +100,7 @@ function Dashboard() {
     };
 
     function getDate(client) {
+        if (client['resetDate'] === '') return ('Not Set')
         var date = new Date(client['resetDate']);
         var day = date.getDate();
         var month = date.getMonth() + 1;
@@ -152,7 +154,7 @@ function Dashboard() {
                                 <div key={client['locationId']} className="second-main">
                                     <p className="current-client">{client['name']} | Usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['usage']} / {client['limit']} | Reset on : {getDate(client)}</p>
                                     <div className="dot" onClick={() => handleDotClick(client['locationId'])}><i className='bx bx-dots-vertical-rounded'></i></div>
-                                    <div className="green"><img src={green} alt='' /></div>
+                                    <div className="green"><img src={client['status'] === 'Active' ? green : red} alt='' /></div>
                                     {isDropdownVisible && selectedClient === client['locationId'] && (
                                         <div className="dropdown-menu">
                                             <button onClick={() => navigate('/editclient', { state: client })}>Edit</button>

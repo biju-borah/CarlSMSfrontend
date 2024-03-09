@@ -48,10 +48,10 @@ function EditClient({ }) {
                 locationId: state['locationId'],
                 phone: state['phone'],
                 refreshToken: state['refreshToken'],
-                status: state['status'],
+                status: 'Active',
                 usage: state['usage'],
                 limit: state['limit'],
-                resetDate: state['resetDate']
+                resetDate: state['resetDate'] === '' ? new Date(new Date().setDate(new Date().getDate() + 30)).toISOString() : state['resetDate']
             });
         }
     }, []);
@@ -155,6 +155,7 @@ function EditClient({ }) {
                                         value={formData.locationId}
                                         onChange={handleInputChange}
                                         placeholder=""
+                                        readOnly='true'
                                         required
                                     />
                                 </div>

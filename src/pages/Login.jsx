@@ -80,7 +80,7 @@ function Login() {
 
                             <div className="register-link">
                                 <p>
-                                    Install app to sub-account? <a href="https://marketplace.gohighlevel.com/oauth/chooselocation?response_type=code&redirect_uri=https://us-central1-hdem-app.cloudfunctions.net/function-1/api/addLocation&client_id=65e618719f4f0c44b3dd04d5-ltdauh5j&scope=contacts.write%20contacts.readonly%20conversations.readonly%20conversations.write%20conversations/message.readonly%20conversations/message.write">Click here</a>
+                                    Install app to sub-account? <a href="https://marketplace.gohighlevel.com/oauth/chooselocation?response_type=code&redirect_uri=https://us-central1-hdem-app.cloudfunctions.net/function-1/api/addLocation&client_id=65ec6d94dd55b13e3221334b-ltk5xurm&scope=contacts.write%20contacts.readonly%20conversations.readonly%20conversations.write%20conversations/message.readonly%20conversations/message.write%20locations.readonly">Click here</a>
                                 </p>
                             </div>
                         </form>
