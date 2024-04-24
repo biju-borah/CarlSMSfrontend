@@ -20,6 +20,8 @@ function AddClient() {
         status: 'Active',
         usage: '0',
         limit: '0',
+        mms_usage: '0',
+        mms_limit: '0',
         resetDate: new Date(new Date().setDate(new Date().getDate() + 30)).toISOString()
     });
 
@@ -122,11 +124,22 @@ function AddClient() {
                                     />
                                 </div>
                                 <div className="limit">
-                                    <p>Limit</p>
+                                    <p>SMS Limit</p>
                                     <input
                                         type="text"
                                         name="limit"
                                         value={formData.limit}
+                                        onChange={handleInputChange}
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+                                <div className="limit">
+                                    <p>MMS Limit</p>
+                                    <input
+                                        type="text"
+                                        name="mms_limit"
+                                        value={formData.mms_limit}
                                         onChange={handleInputChange}
                                         placeholder=""
                                         required

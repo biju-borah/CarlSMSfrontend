@@ -152,7 +152,7 @@ function Dashboard() {
                         <>
                             {filteredClients.map(client => (
                                 <div key={client['locationId']} className="second-main">
-                                    <p className="current-client">{client['name']} | Usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['usage']} / {client['limit']} | Reset on : {getDate(client)}</p>
+                                    <p className="current-client"><b>{client['name']}</b> | SMS usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['usage']} / {client['limit']} | MMS usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['mms_usage']} / {client['mms_limit']} | <b>Reset on :</b> {getDate(client)}</p>
                                     <div className="dot" onClick={() => handleDotClick(client['locationId'])}><i className='bx bx-dots-vertical-rounded'></i></div>
                                     <div className="green"><img src={client['status'] === 'Active' ? green : red} alt='' /></div>
                                     {isDropdownVisible && selectedClient === client['locationId'] && (

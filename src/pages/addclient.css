@@ -87,7 +87,11 @@
 }
 
 .add-details .limit {
-    margin-left: 40px;
+    margin-left: 45px;
+}
+
+.add-details .limit input {
+    width: 150px;
 }
 
 .add-details .wrapper .btn {

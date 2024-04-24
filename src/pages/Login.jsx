@@ -24,7 +24,7 @@ function Login() {
                 alert('Login failed. Please check your credentials.');
             }
         } catch (error) {
-            console.error('An error occurred:', error);
+            alert('An error occurred:', error);
         }
         setLoading(false)
     };

@@ -20,6 +20,8 @@ function EditClient({ }) {
         status: 'Active',
         usage: '0',
         limit: '0',
+        mms_usage: '0',
+        mms_limit: '0',
         resetDate: ''
     });
 
@@ -51,6 +53,8 @@ function EditClient({ }) {
                 status: 'Active',
                 usage: state['usage'],
                 limit: state['limit'],
+                mms_usage: state['mms_usage'],
+                mms_limit: state['mms_limit'],
                 resetDate: state['resetDate'] === '' ? new Date(new Date().setDate(new Date().getDate() + 30)).toISOString() : state['resetDate']
             });
         }
@@ -135,11 +139,22 @@ function EditClient({ }) {
                                     />
                                 </div>
                                 <div className="limit">
-                                    <p>Limit</p>
+                                    <p>SMS Limit</p>
                                     <input
                                         type="text"
                                         name="limit"
                                         value={formData.limit}
+                                        onChange={handleInputChange}
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+                                <div className="limit">
+                                    <p>MMS Limit</p>
+                                    <input
+                                        type="text"
+                                        name="mms_limit"
+                                        value={formData.mms_limit}
                                         onChange={handleInputChange}
                                         placeholder=""
                                         required
