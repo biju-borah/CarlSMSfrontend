@@ -101,11 +101,41 @@ function Dashboard() {
 
     function getDate(client) {
         if (client['resetDate'] === '') return ('Not Set')
-        var date = new Date(client['resetDate']);
-        var day = date.getDate();
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
-        return day + '/' + month + '/' + year;
+        var resetDate = new Date(client['resetDate']);
+        var today = new Date();
+        if (resetDate > today) {
+            var day = resetDate.getDate();
+            var month = resetDate.getMonth() + 1;
+            var year = resetDate.getFullYear();
+            return day + '/' + month + '/' + year;
+        }
+        else {
+            let newResetDate = new Date(resetDate);
+            const today = new Date();
+
+            while (newResetDate <= today) {
+                newResetDate.setDate(newResetDate.getDate() + 30);
+            }
+            var day = newResetDate.getDate();
+            var month = newResetDate.getMonth() + 1;
+            var year = newResetDate.getFullYear();
+            return day + '/' + month + '/' + year;
+        }
+    }
+
+    function copyToClipboard(id) {
+        var copyText = "https://hdem-app.uc.r.appspot.com/quota?id=" + id;
+        navigator.clipboard.writeText(copyText);
+        toast.success('Link copied to clipboard!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
     return (
@@ -158,6 +188,7 @@ function Dashboard() {
                                     {isDropdownVisible && selectedClient === client['locationId'] && (
                                         <div className="dropdown-menu">
                                             <button onClick={() => navigate('/editclient', { state: client })}>Edit</button>
+                                            <button onClick={() => copyToClipboard(client['locationId'])}>Widget link</button>
                                             <button className='pause' onClick={() => handlePopup(true, 'Pause', client['locationId'])}>Pause</button>
                                             <button className='delete' onClick={() => handlePopup(true, 'Delete', client['locationId'])}>Delete</button>
                                         </div>
