@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './dashboard.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +18,8 @@ function Dashboard() {
     const [popup, setPopup] = useState({ enable: false, type: null, id: null })
     const navigate = useNavigate()
     const { state } = useLocation()
+    const dropdownRef = useRef(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         const token = sessionStorage.getItem('token');
@@ -84,6 +86,7 @@ function Dashboard() {
                 id: id
             })
         }
+        setIsDropdownVisible(false);
     }
 
     const filteredClients = clients.filter(client =>
@@ -98,6 +101,19 @@ function Dashboard() {
         setSelectedClient(clientId);
         setIsDropdownVisible(!isDropdownVisible);
     };
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !buttonRef.current.contains(event.target)) {
+                setIsDropdownVisible(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [dropdownRef, buttonRef]);
 
     function getDate(client) {
         if (client['resetDate'] === '') return ('Not Set')
@@ -126,6 +142,7 @@ function Dashboard() {
     function copyToClipboard(id) {
         var copyText = "https://hdem-app.uc.r.appspot.com/quota?id=" + id;
         navigator.clipboard.writeText(copyText);
+        setIsDropdownVisible(false)
         toast.success('Link copied to clipboard!', {
             position: "top-right",
             autoClose: 5000,
@@ -183,10 +200,10 @@ function Dashboard() {
                             {filteredClients.map(client => (
                                 <div key={client['locationId']} className="second-main">
                                     <p className="current-client"><b>{client['name']}</b> | SMS usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['usage']} / {client['limit']} | MMS usage: {new Date(client['resetDate']) <= new Date() ? 0 : client['mms_usage']} / {client['mms_limit']} | <b>Reset on :</b> {getDate(client)}</p>
-                                    <div className="dot" onClick={() => handleDotClick(client['locationId'])}><i className='bx bx-dots-vertical-rounded'></i></div>
+                                    <div className="dot" onClick={() => handleDotClick(client['locationId'])} ref={buttonRef}><i className='bx bx-dots-vertical-rounded'></i></div>
                                     <div className="green"><img src={client['status'] === 'Active' ? green : red} alt='' /></div>
                                     {isDropdownVisible && selectedClient === client['locationId'] && (
-                                        <div className="dropdown-menu">
+                                        <div className="dropdown-menu" ref={dropdownRef}>
                                             <button onClick={() => navigate('/editclient', { state: client })}>Edit</button>
                                             <button onClick={() => copyToClipboard(client['locationId'])}>Widget link</button>
                                             <button className='pause' onClick={() => handlePopup(true, 'Pause', client['locationId'])}>Pause</button>

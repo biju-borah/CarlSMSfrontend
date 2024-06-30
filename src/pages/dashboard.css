@@ -1,8 +1,9 @@
 .dashboard {
-    display: grid;
-    justify-content: center;
+    /* display: grid; */
+    /* justify-content: center; */
     /* align-items: center; */
-    min-height: 100vh;
+    padding: 5vh 10vw;
+    height: 100vh;
     background: #fff;
 }
 
@@ -13,14 +14,13 @@
 .dashboard .top {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
 }
 
 .dashboard .wrapper {
     margin-top: 30px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     width: 80vw;
-    height: 480px;
+    height: calc(100% - 15vh);
     background: #f7f7f7;
     /* color:#000; */
     border-radius: 10px;
@@ -87,13 +87,13 @@
 .dashboard .user-image img {
     width: 50px;
     height: 50px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     margin-left: -90px;
 }
 
 .dashboard .main-text h1 {
     color: #000;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     padding-left: 35px;
 }
 
