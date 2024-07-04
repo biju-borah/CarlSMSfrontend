@@ -56,8 +56,8 @@ function QuotaPage() {
                                     <a href="#">
                                         <div className="card-front bg-green">
                                             <i className="fa fa-heart fa-3x tile-icon icon-white"></i>
-                                            <h4>MMS Usage</h4>
-                                            <p className="detail">{new Date(acc['resetDate']) <= new Date() ? 0 : acc['mms_usage']} <span>out of {acc.mms_limit}</span></p>
+                                            <h4>MMS Sent</h4>
+                                            <p className="detail">{new Date(acc['resetDate']) <= new Date() ? 0 : acc['mms_usage']}</p>
                                             {/* <p>Reset on {getDate(acc)}</p> */}
                                         </div>
                                     </a>

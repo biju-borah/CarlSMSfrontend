@@ -37,10 +37,19 @@ function AddClient() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+        if (name === 'limit') {
+            setFormData({
+                ...formData,
+                [name]: value,
+                mms_limit: Math.floor(value / 2)
+            });
+        }
+        else {
+            setFormData({
+                ...formData,
+                [name]: value
+            });
+        }
     };
 
     const submitHandler = async (e) => {
@@ -139,9 +148,10 @@ function AddClient() {
                                     <input
                                         type="text"
                                         name="mms_limit"
-                                        value={formData.mms_limit}
+                                        value={Math.floor(formData.limit / 2)}
                                         onChange={handleInputChange}
                                         placeholder=""
+                                        readOnly='true'
                                         required
                                     />
                                 </div>
