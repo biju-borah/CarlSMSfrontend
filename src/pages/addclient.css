@@ -50,7 +50,7 @@
 }
 
 .add-details .input-box-second input {
-    width: 350px
+    width: 250px;
 }
 
 .add-details .input-box-third input {
@@ -79,6 +79,10 @@
 .add-details .location-id {
     margin-right: 40px;
     margin-bottom: 30px;
+}
+
+.add-details .phone {
+    margin-right: 40px;
 }
 
 .add-details .acc-token {
@@ -135,4 +139,22 @@
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
+}
+
+.resetDate {
+    position: relative;
+    display: inline-block;
+}
+
+.resetDate>input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
 }

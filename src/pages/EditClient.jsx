@@ -37,6 +37,11 @@ function EditClient({ }) {
                 [name]: value,
                 mms_limit: Math.floor(value / 2)
             });
+        } else if (name === 'resetDate') {
+            setFormData({
+                ...formData,
+                [name]: new Date(value).toISOString()
+            });
         }
         else {
             setFormData({
@@ -45,6 +50,37 @@ function EditClient({ }) {
             });
         }
     };
+
+    function getDate(dateString) {
+        var resetDate = new Date(dateString);
+        var today = new Date();
+        if (resetDate > today) {
+            var day = resetDate.getDate();
+            var month = resetDate.getMonth() + 1;
+            var year = resetDate.getFullYear();
+            var formattedDate =
+                year + '-' +
+                (month.toString().length === 1 ? '0' + month : month) + '-' +
+                (day.toString().length === 1 ? '0' + day : day);
+            return formattedDate;
+        }
+        else {
+            let newResetDate = new Date(resetDate);
+            const today = new Date();
+
+            while (newResetDate <= today) {
+                newResetDate.setDate(newResetDate.getDate() + 30);
+            }
+            var day = newResetDate.getDate();
+            var month = newResetDate.getMonth() + 1;
+            var year = newResetDate.getFullYear();
+            var formattedDate =
+                year + '-' +
+                (month.toString().length === 1 ? '0' + month : month) + '-' +
+                (day.toString().length === 1 ? '0' + day : day);
+            return formattedDate;
+        }
+    }
 
     useEffect(() => {
         const token = sessionStorage.getItem('token');
@@ -190,6 +226,17 @@ function EditClient({ }) {
                                         type="text"
                                         name="phone"
                                         value={formData.phone}
+                                        onChange={handleInputChange}
+                                        placeholder=""
+                                        required
+                                    />
+                                </div>
+                                <div className="resetDate">
+                                    <p>Reset Date</p>
+                                    <input
+                                        type="date"
+                                        name="resetDate"
+                                        value={getDate(formData.resetDate)}
                                         onChange={handleInputChange}
                                         placeholder=""
                                         required
