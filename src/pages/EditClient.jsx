@@ -17,12 +17,14 @@ function EditClient({ }) {
         locationId: '',
         phone: '',
         refreshToken: '',
+        accessToken: '',
         status: 'Active',
         usage: '0',
         limit: '0',
         mms_usage: '0',
         mms_limit: '0',
-        resetDate: ''
+        resetDate: '',
+        expiresAt: ''
     });
 
     const { state } = useLocation()
@@ -95,12 +97,14 @@ function EditClient({ }) {
                 locationId: state['locationId'],
                 phone: state['phone'],
                 refreshToken: state['refreshToken'],
+                accessToken: state['accessToken'],
                 status: 'Active',
                 usage: state['usage'],
                 limit: state['limit'],
                 mms_usage: state['mms_usage'],
                 mms_limit: state['mms_limit'],
-                resetDate: state['resetDate'] === '' ? new Date(new Date().setDate(new Date().getDate() + 30)).toISOString() : state['resetDate']
+                resetDate: state['resetDate'] === '' ? new Date(new Date().setDate(new Date().getDate() + 30)).toISOString() : state['resetDate'],
+                expiresAt: state['expiresAt']
             });
         }
     }, []);

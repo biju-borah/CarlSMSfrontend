@@ -17,12 +17,14 @@ function AddClient() {
         locationId: '',
         phone: '',
         refreshToken: '',
+        accessToken: '',
         status: 'Active',
         usage: '0',
         limit: '0',
         mms_usage: '0',
         mms_limit: '0',
-        resetDate: new Date(new Date().setDate(new Date().getDate() + 30)).toISOString()
+        resetDate: new Date(new Date().setDate(new Date().getDate() + 30)).toISOString(),
+        expiresAt: ''
     });
 
     function getDate(dateString) {
